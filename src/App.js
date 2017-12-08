@@ -1,22 +1,18 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Navigation } from 'react-native-navigation';
+import { AppRegistry } from 'react-native';
+import MainScreen from './MainScreen';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={{fontSize: 30}}>🔥 Midburn 🔥</Text>
-        <Text style={{fontSize: 30}}>Let's Rock 🤘</Text>
-      </View>
-    );
-  }
-}
+const MAIN_SCREEN = 'midburn.MainScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#5D8CAE',
-    alignItems: 'center',
-    justifyContent: 'center',
+
+Navigation.registerComponent(MAIN_SCREEN, () => MainScreen);
+
+Navigation.startSingleScreenApp({
+  screen: {
+    screen: MAIN_SCREEN,
+    title: 'Welcome',
+    navigatorStyle: {},
   },
 });
+
+AppRegistry.registerComponent('MidburnApp', () => MAIN_SCREEN);
